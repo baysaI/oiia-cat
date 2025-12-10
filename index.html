@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Oiia Cat</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.152.2/build/three.module.js",
+      "three/addons/loaders/GLTFLoader.js": "https://unpkg.com/three@0.152.2/examples/jsm/loaders/GLTFLoader.js",
+      "three/addons/loaders/DRACOLoader.js": "https://unpkg.com/three@0.152.2/examples/jsm/loaders/DRACOLoader.js",
+      "three/addons/controls/OrbitControls.js": "https://unpkg.com/three@0.152.2/examples/jsm/controls/OrbitControls.js"
+    }
+  }
+  </script>
+  <script type="module" src="script.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="top-bar">
+      <div class="name-container">
+        <div id="nameDisplay" class="name-display">
+          <span id="petName" class="app-title">Oiia Cat</span>
+          <button id="editNameBtn" class="btn-icon small" aria-label="İsmi Düzenle">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+          </button>
+        </div>
+        <input type="text" id="nameInput" class="name-input hidden" maxlength="15" placeholder="İsim ver...">
+      </div>
+
+      <div class="volume-container">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vol-icon"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+        <input type="range" id="volSlider" min="0" max="1" step="0.01" value="0.5">
+      </div>
+    </div>
+
+    <header class="status-bars">
+      <div class="bar-box">
+        <div class="label">Açlık <span id="hungerLabel">100%</span></div>
+        <div class="bar" aria-hidden="true">
+          <div id="hungerFill" class="fill"></div>
+        </div>
+      </div>
+
+      <div class="bar-box">
+        <div class="label">Mutluluk <span id="happinessLabel">100%</span></div>
+        <div class="bar" aria-hidden="true">
+          <div id="happinessFill" class="fill"></div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="pet-3d-wrap">
+        <div id="threeContainer" class="three-container" aria-hidden="true"></div>
+      </div>
+    </main>
+
+    <footer class="controls">
+      <div class="buttons">
+        <button id="feedBtn" class="btn primary">Yemek Ver</button>
+        <button id="playBtn" class="btn">Oyun Oyna</button>
+      </div>
+      <button id="restartBtn" class="btn ghost hidden">Yeniden Başlat</button>
+    </footer>
+
+    <div class="app-footer">
+      <p>Oiia Cat v1.1 • Designed by Mehmet Baysal</p>
+    </div>
+  </div>
+</body>
+</html>
