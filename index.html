@@ -30,24 +30,48 @@
         <input type="text" id="nameInput" class="name-input hidden" maxlength="15" placeholder="İsim ver...">
       </div>
 
-      <div class="volume-container">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vol-icon"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
-        <input type="range" id="volSlider" min="0" max="1" step="0.01" value="0.5">
+      <div class="top-right-group">
+        <div class="coins-container" title="Altın">
+          <svg style="margin-right:2px;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#ffd700" stroke="#b8860b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+          <span id="coinsLabel">0</span>
+        </div>
+        <div class="volume-container">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vol-icon"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+          <input type="range" id="volSlider" min="0" max="1" step="0.01" value="0.5">
+        </div>
       </div>
     </div>
 
     <header class="status-bars">
-      <div class="bar-box">
-        <div class="label">Açlık <span id="hungerLabel">100%</span></div>
-        <div class="bar" aria-hidden="true">
-          <div id="hungerFill" class="fill"></div>
+      <div class="bars-row">
+        <div class="bar-box">
+          <div class="label">Açlık <span id="hungerLabel">100%</span></div>
+          <div class="bar" aria-hidden="true">
+            <div id="hungerFill" class="fill"></div>
+          </div>
+        </div>
+
+        <div class="bar-box">
+          <div class="label">Mutluluk <span id="happinessLabel">100%</span></div>
+          <div class="bar" aria-hidden="true">
+            <div id="happinessFill" class="fill"></div>
+          </div>
         </div>
       </div>
 
-      <div class="bar-box">
-        <div class="label">Mutluluk <span id="happinessLabel">100%</span></div>
-        <div class="bar" aria-hidden="true">
-          <div id="happinessFill" class="fill"></div>
+      <div class="bars-row">
+        <div class="bar-box">
+          <div class="label">Temizlik <span id="cleanLabel">100%</span></div>
+          <div class="bar" aria-hidden="true">
+            <div id="cleanFill" class="fill"></div>
+          </div>
+        </div>
+
+        <div class="bar-box">
+          <div class="label">Enerji <span id="energyLabel">100%</span></div>
+          <div class="bar" aria-hidden="true">
+            <div id="energyFill" class="fill"></div>
+          </div>
         </div>
       </div>
     </header>
@@ -55,19 +79,30 @@
     <main>
       <div class="pet-3d-wrap">
         <div id="threeContainer" class="three-container" aria-hidden="true"></div>
+        <div id="minigameOverlay" class="minigame-overlay hidden">
+          <div id="minigameScore">0</div>
+          <div id="minigameInst">Zıplamak için tıkla / Space!</div>
+        </div>
+        <div id="gameOverScreen" class="game-over-screen hidden">
+          <h2>Oyun Bitti!</h2>
+          <p>Skor: <span id="finalScore">0</span></p>
+          <button id="exitGameBtn" class="btn primary">Geri Dön</button>
+        </div>
       </div>
     </main>
 
     <footer class="controls">
       <div class="buttons">
-        <button id="feedBtn" class="btn primary">Yemek Ver</button>
-        <button id="playBtn" class="btn">Oyun Oyna</button>
+        <button id="feedBtn" class="btn primary">Yemek <span>10💰</span></button>
+        <button id="playBtn" class="btn">Oyun</button>
+        <button id="cleanBtn" class="btn">Banyo <span>5💰</span></button>
+        <button id="sleepBtn" class="btn">Uyku</button>
       </div>
       <button id="restartBtn" class="btn ghost hidden">Yeniden Başlat</button>
     </footer>
 
     <div class="app-footer">
-      <p>Oiia Cat v1.1 • Designed by Mehmet Baysal</p>
+      <p>Oiia Cat v1.3 • Designed by Mehmet Baysal</p>
     </div>
   </div>
 </body>
